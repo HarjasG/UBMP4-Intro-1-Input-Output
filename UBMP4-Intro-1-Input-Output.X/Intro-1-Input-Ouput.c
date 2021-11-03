@@ -21,20 +21,8 @@
 // TODO Set linker code offset to '800' under "Additional options" pull-down.
 
 // The main function is required, and the program begins executing from here.
-
-int main(void)
-{
-    // Configure oscillator and I/O ports. These functions run once at start-up.
-    OSC_config();               // Configure internal oscillator for 48 MHz
-    UBMP4_config();             // Configure on-board UBMP4 I/O devices
-	
-    // Code in this while loop runs repeatedly.
-    while(1)
-	{
-        // If SW2 is pressed, make a flashy light pattern
-        if(SW2 == 0)
-        {
-            LED3 = 1;
+void makeLEDPattern() {
+    LED3 = 1;
             __delay_ms(100);
             LED4 = 1;
             __delay_ms(100);
@@ -50,7 +38,22 @@ int main(void)
             __delay_ms(100);
             LED6 = 0;
             __delay_ms(100);
+}
+int main(void)
+{
+    // Configure oscillator and I/O ports. These functions run once at start-up.
+    OSC_config();               // Configure internal oscillator for 48 MHz
+    UBMP4_config();             // Configure on-board UBMP4 I/O devices
+	
+    // Code in this while loop runs repeatedly.
+    while(1)
+	{
+        // If SW2 is pressed, make a flashy light pattern
+        if(SW2 == 0)
+        {
+           makeLEDPattern ()
         }
+    
         
         // Add code for your Program Analysis and Programming Activities here:
         If (SW3 == 0)
