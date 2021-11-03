@@ -69,6 +69,19 @@ int main(void)
             LED3 = 0;
             LED6 = 0;
         }
+        if (SW4 == 0);
+        {
+            LED3 = 1;
+            LED5 = 1;
+            __delay_ms(150);
+            LED3 = 0;
+            LED5 = 0;
+            LED4 = 1;
+            LED6 = 1;
+            __delay_ms(150);
+            LED4 = 0;
+            LED6 = 0;
+        }
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
         {
