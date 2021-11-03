@@ -51,12 +51,12 @@ int main(void)
         // If SW2 is pressed, make a flashy light pattern
         if(SW2 == 0)
         {
-           makeLEDPattern ()
+           makeLEDPattern ();
         }
     
         
         // Add code for your Program Analysis and Programming Activities here:
-        If (SW3 == 0)
+        if (SW3 == 0);
         {
             LED4 = 1;
             LED5 = 1;
