@@ -56,7 +56,14 @@ int main(void)
     
         
         // Add code for your Program Analysis and Programming Activities here:
-        if (SW3 == 0);
+        if(SW3 == 0)
+        {
+            LATC = 0b00000000;
+            __delay_ms(100);
+            LATC = 0b11110000;
+            __delay_ms(100);
+        }
+        if (SW5 == 0);
         {
             LED4 = 1;
             LED5 = 1;
@@ -95,20 +102,20 @@ int main(void)
  * 1. How many times do the LEDs flash if SW2 is quickly pressed and released?
  *    Do the LEDs keep flashing when SW2 is held? Look at the program and
  *    explain why this happens when SW2 is held.
- * 
+ * The LEDs flash for how long the button held since their is a if statement.
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
- * 
+ * LED3 = 0 means their is zero volts which means the LED is off. LED3 = 1 means that their are volts which means 5 volts are reaching LED3.
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
- * 
+ * We expect zero volts for LED3 = 0 since their is no volts flowing. For the output of LED3, it means 5 volts are flowing since their is a 1.
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
  * 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
- * 
+ *
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
