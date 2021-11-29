@@ -111,11 +111,11 @@ int main(void)
  * We expect zero volts for LED3 = 0 since their is no volts flowing. For the output of LED3, it means 5 volts are flowing since their is a 1.
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
- * 
+ *    Yes
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
- *
+ *    == is a conditional operation which means it means equal to, while a single equal sign means its a assignment operator.
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -131,7 +131,7 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
- * 
+ *    An advantage of LATC is that all of the code is processed at one time and is a lot easier to type than multiple statements. A disadvantage of LATC is that its a infinite loop
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
 
