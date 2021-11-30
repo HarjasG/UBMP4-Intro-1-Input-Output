@@ -58,36 +58,18 @@ int main(void)
         // Add code for your Program Analysis and Programming Activities here:
         if(SW3 == 0)
         {
-            LATC = 0b00000000;
-            __delay_ms(100);
-            LATC = 0b11110000;
-            __delay_ms(100);
+            if(SW4 == 0)
+            {
+                LED4 = 1;
+            }
+            else
+            {
+                LED4 = 0;
+            }
         }
-        if (SW5 == 0);
+        else
         {
-            LED4 = 1;
-            LED5 = 1;
-            __delay_ms(50);
             LED4 = 0;
-            LED5 = 0;
-            LED3 = 1;
-            LED6 = 1;
-            __delay_ms(50);
-            LED3 = 0;
-            LED6 = 0;
-        }
-        if (SW4 == 0);
-        {
-            LED3 = 1;
-            LED5 = 1;
-            __delay_ms(150);
-            LED3 = 0;
-            LED5 = 0;
-            LED4 = 1;
-            LED6 = 1;
-            __delay_ms(150);
-            LED4 = 0;
-            LED6 = 0;
         }
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
@@ -104,18 +86,25 @@ int main(void)
  *    explain why this happens when SW2 is held.
  * The LEDs flash for how long the button held since their is a if statement.
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
+
  * LED3 = 0 means their is zero volts which means the LED is off. LED3 = 1 means that their are volts which means 5 volts are reaching LED3.
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
+
  * We expect zero volts for LED3 = 0 since their is no volts flowing. For the output of LED3, it means 5 volts are flowing since their is a 1.
+ 
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
- *    Yes
+
+ *    Yes, it was around 4.7 volts.
+
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
+
  *    == is a conditional operation which means it means equal to, while a single equal sign means its a assignment operator.
+
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -131,7 +120,9 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
+ 
  *    An advantage of LATC is that all of the code is processed at one time and is a lot easier to type than multiple statements. A disadvantage of LATC is that its a infinite loop
+
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
 
@@ -156,11 +147,15 @@ int main(void)
  * 
  *    Next, press and hold SW3 while pressing and releasing SW4. Does it work
  *    as expected?
- * 
+
+ * Yes
+
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
- * 
+
+ it does not turn on because SW3 in a while loop
+
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
  *    condition that will light LED D4 only if both SW3 and SW4 are pressed:
@@ -184,10 +179,10 @@ int main(void)
 
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
- * 
+ *
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
- 
+
         // Conditional 'AND' code
         if(SW3 == 0 && SW4 == 0)
         {
@@ -245,7 +240,9 @@ int main(void)
  *    Try changing the delay values in both of the __delay_us(); functions.
  *    Does the pitch of the tone increase or decrease if the delay value is
  *    made smaller?
- * 
+
+ *  The lower the delay is, the higher the pitch is.
+
  * 3. This code demonstrates a more compact way of toggling the beeper output
  *    using a logical NOT operator '!'. Replace the code above, with this code:
  
