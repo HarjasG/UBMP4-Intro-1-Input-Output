@@ -49,30 +49,60 @@ int main(void)
     while(1)
 	{
         // If SW2 is pressed, make a flashy light pattern
-        if(SW2 == 0)
+        /*if(SW2 == 0)
         {
            makeLEDPattern ();
-        }
+        }*/
     
         
         // Add code for your Program Analysis and Programming Activities here:
+        /* Programming Activity #1
         if(SW3 == 0)
         {
-            if(SW4 == 0)
-            {
-                LED4 = 1;
-            }
-            else
-            {
-                LED4 = 0;
-            }
-        }
-        else
+            LED3 = 1;
+            __delay_ms(4205);
+        }*/
+
+        /* Programming Activity #2
+        if(SW5 == 0)
         {
-            LED4 = 0;
+            BEEPER = 1;
+            __delay_us(567);
+            BEEPER = 0;
+            __delay_us(567);
+        }*/
+
+        /* Programming Activity #3
+        if(SW5 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(567);
+        }*/
+        if(SW2 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(350);
         }
-        // Activate bootloader if SW1 is pressed.
-        if(SW1 == 0)
+        if(SW3 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(600);
+        }
+        if(SW4 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(1100);
+        }
+        if(SW5 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(1600);
+        }    
+if(SW2 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(100);
+        }        if(SW1 == 0)
         {
             RESET();
         }
@@ -179,7 +209,9 @@ int main(void)
 
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
- *
+
+ *    It does matter because it acts as a series circuit.
+
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
 
@@ -196,7 +228,9 @@ int main(void)
  *    Does '&&' work the same way as the nested if structures? Can you think of
  *    at least one advantage of using a logical conditional operator instead of
  *    nested if structures?
- * 
+
+ *    Using a logical conditional operator makes your code more compact. 
+
  * 9. Replace the double ampersand '&&' with double vertical bars '||)' to make
  *    a logical OR conditional operator. Your code should look like this:
   
@@ -211,16 +245,21 @@ int main(void)
         }
 
  *    Describe the conditions under which LED4 turns on.
- * 
+
+ * When SW3 + SW4 are pressed together, it turns on LED4
  * 
  * Programming Activities
  * 
  * 1. The statement '__delay_ms(100);' creates a 100ms delay. Try changing one
  *    or more of the delay values in the program to 500ms and see what happens.
  * 
+It is delayed 5 times longer.
+
  *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
  *    before MPLAB-X produces an error message? (Hint: can you think of a fast
  *    and efficient way of guessing an unknown number?)
+
+ 4205 is maximum before a error message pops up
  * 
  * 2. The '__delay_ms();' function only accepts integers as delay values. To
  *    make delays shorter than 1ms, specify a delay in microseconds using the
@@ -258,6 +297,8 @@ int main(void)
  *    be in after this code runs? While one advantage of this method is smaller
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
+
+      A disadvantage is that you do not know what state its in (1 or 0)
  * 
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
