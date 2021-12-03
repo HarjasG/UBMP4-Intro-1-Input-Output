@@ -78,7 +78,7 @@ int main(void)
             BEEPER = !BEEPER;
             __delay_us(567);
         }*/
-        if(SW2 == 0)
+        /*if(SW2 == 0)
         {
             BEEPER = !BEEPER;
             __delay_us(350);
@@ -98,17 +98,23 @@ int main(void)
             BEEPER = !BEEPER;
             __delay_us(1600);
         }    
-if(SW2 == 0)
+    if(SW2 == 0)*/
+
+    //Programming Activity #6
+    if(SW3 == 0)
+    {
+        LED4 = 1;
+        SW4 = 0;
+        LED4 = 0;
+    }
         {
-            BEEPER = !BEEPER;
             __delay_us(100);
         }        if(SW1 == 0)
         {
             RESET();
         }
-    }
+   }
 }
-
 /* Program Analysis
  * 
  * 1. How many times do the LEDs flash if SW2 is quickly pressed and released?
@@ -306,17 +312,23 @@ It is delayed 5 times longer.
  *    Test each of your flashing patterns. Describe what happens when more than
  *    one button is held. Do all of the patterns try to flash the LEDs at the
  *    same time, or sequentially? Explain why this is.
+
+      All of the patterns try to flash at the same time because your executing 2 programs at once.
  * 
  * 5. Create a program that makes a different tone for each pushbutton.
  * 
  *    Test each tone by pressing each button individually. Next, press two or
  *    more buttons at the same time. Describe what the tone waveform would look
  *    like when more than one button is held.
+
+      The tone waveform is the 2 other waveforms combined since it makes a deeper noise instead of sqeaker.
  * 
  * 6. Use individual 'if' structures to simulate 'Start' and 'Stop' buttons for
  *    an industrial machine. LED D4 should turn on when SW3 is pressed, stay on
  *    even after SW3 is released, and turn off when SW4 is pressed. Test your
  *    program to make sure it works.
+
+      
  * 
  * 7. Running your program from 6, above, describe what happens when both SW3
  *    and SW4 are pressed. Does LED D4 stay on? If so, how does the brightness
@@ -324,6 +336,8 @@ It is delayed 5 times longer.
  *    to this new state when both SW3 and SW4 are bing held? Can you explain
  *    why it changes?
  * 
+      Yes it does but the brightness goes lower since its a series circuit, not a parallel.
+
  * 8. As you can imagine, an industrial machine that is able to turn on even
  *    while its 'Stop' button is pressed represents a significant safety hazard.
  *    Using a logical conditional operator, modify the start-stop program from
@@ -337,3 +351,4 @@ It is delayed 5 times longer.
  *    with the other LEDs. This means that you need to make D1's output a zero
  *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
  */
+ 
